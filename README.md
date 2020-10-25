@@ -17,6 +17,8 @@ Download the latest release, which comes as a small installer. Simply run this i
 with a shortcut made in your Start Menu, as well as on your Desktop. 
 
 # How to Use
+Want to watch a video instead of reading a text wall? Try this! 
+https://youtu.be/ChtjlNNp9Y4
 
 Once this is installed, you can just run it from the shortcut on your desktop, or however you choose. 
 A window will pop up. There are three options. 
