@@ -1,6 +1,10 @@
 # Astromech
 A small program that enables voice control functionality to the game Star Wars: Squadrons.
 
+# Feeling Generous?
+
+https://paypal.me/BLINDRane?locale.x=en_US
+
 # Dislaimer
 
 I have tested this software on my own machine, and it has not hurt it. The program can use between 30 and roughly 60 MB of RAM at a time. For most machines, this should not cause any issues. However, if you happen to BARELY be able to run Squadrons, maybe don't use this?
