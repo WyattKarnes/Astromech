@@ -43,6 +43,7 @@ When in game, commands will only work properly while flying. However, since the 
 
 So what can your droid do? Well, there are 42 total commands. Two for each action. Here is the list, and what each item does: 
 
+```
 fire counter measures  //deploy counter measures
 deploy counter measures 
 full power to weapons //give all power to weapons
@@ -85,13 +86,13 @@ light him up      //paints a target for your allies to focus on
 paint that target
 i see it        //acknowledge a painted target
 acknowledge
-
+```
 So why so many different commands? Well, I wanted to give you options. Additionally, I wrote the code such that you can write in *anything you want* and it should work. 
 Just go to the Commands.txt file (make a copy just in case), which can be found inside of your install folder, and edit away! There are some caveats though.
 
 The code works with EXACTLY 42 commands and their __*purpose*__ must be in the EXACT order that I have them listed. They must also all be on __*separate lines*__. You can therefore have up to two custom commands per control, but you must always have 42 commands, you cannot have less than that, and you cannot have more. Doing so will result in crashing the program and odd behavior, respectively. Commands should also all be lowercase. A safe edit would be something like this: 
-
+```
 full power to weapons //give all power to weapons
 lets blast them <----- changed this line from "give me weapons"
-
+```
 Finally, with all of that out of the way, play the game, and just issue commands while you fly to get an even more immersive experience, or just to keep from having to move your hands so much. 
