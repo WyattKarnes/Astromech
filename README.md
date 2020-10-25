@@ -20,6 +20,14 @@ In short, use at your own risk.
 Download the latest release, which comes as a zip file. Simply unzip this folder and run setup.exe, and you will get the Astromech program installed to the folder of your choice, 
 with a shortcut made in your Start Menu, as well as on your Desktop. 
 
+# How to Update or Uninstall
+
+When updating to a newer version, there are two options. If you download the new release and install it to the same place as the old one, it should overwrite the old version and you should be good to go. Start Astromech and check the version number in the lower right (version 1 did not have a version number tag) If you want to be *absolutely sure* you could just use the next step.
+
+The second option when updating is to uninstall Astromech using the windows uninstaller, and then just install the new version. No worries about overwrites here. 
+
+To uninstall Astromech, simply use the built in windows uninstaller. 
+
 # How to Use
 Want to watch a video instead of reading a text wall? Try this! 
 https://youtu.be/ChtjlNNp9Y4
