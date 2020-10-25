@@ -28,6 +28,8 @@ The second option when updating is to uninstall Astromech using the windows unin
 
 To uninstall Astromech, simply use the built in windows uninstaller. 
 
+NOTE: If you have made changes to the Commands.txt file, installing a new version of Astromech will overwrite your changes. If you want to keep them, save your changes somewhere. If I add more commands in the future, this note will change, because you will need to overwrite the file or risk breaking the program. For now though, this note is still relevant. 
+
 # How to Use
 Want to watch a video instead of reading a text wall? Try this! 
 https://youtu.be/ChtjlNNp9Y4
