@@ -11,13 +11,13 @@ I have tested this software on my own machine, and it has not hurt it. The progr
 
 I am not a verified publisher. Decide for yourself if you are ok with that. I am just a hobbyist. 
 
-No, this is not malware. 
+No, this is not malware. I am just telling you that odd behavior could occur that I did not experience in testing. 
 
 In short, use at your own risk. 
 
 # How to Install
 
-Download the latest release, which comes as a zip file. Simply unzip this folder and run setup.exe, and you will get the Astromech program installed to the folder of your choice, 
+Download the latest release, which comes in a few versions. You should just be able to get "AstromechInstaller.msi" and run that. It is likely your computer will warn you that this could be dangerous (because I am not a verified publisher). Press "more info" and then "run anyway" If that does not work, grab the "AstromechInstallerCombo.zip" file. Simply unzip this folder and run setup.exe, and you will get the Astromech program installed to the folder of your choice, 
 with a shortcut made in your Start Menu, as well as on your Desktop. 
 
 # How to Update or Uninstall
