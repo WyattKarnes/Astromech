@@ -17,7 +17,7 @@ In short, use at your own risk.
 
 # How to Install
 
-Download the latest release, which comes as a small installer. Simply run this installer, and you will get the Astromech program installed to the folder of your choice, 
+Download the latest release, which comes as a zip file. Simply unzip this folder and run setup.exe, and you will get the Astromech program installed to the folder of your choice, 
 with a shortcut made in your Start Menu, as well as on your Desktop. 
 
 # How to Use
