@@ -17,8 +17,13 @@ In short, use at your own risk.
 
 # How to Install
 
-Download the latest release, which comes in a few versions. You should just be able to get "AstromechInstaller.msi" and run that. It is likely your computer will warn you that this could be dangerous (because I am not a verified publisher). Press "more info" and then "run anyway" If that does not work, grab the "AstromechInstallerCombo.zip" file. Simply unzip this folder and run setup.exe, and you will get the Astromech program installed to the folder of your choice, 
-with a shortcut made in your Start Menu, as well as on your Desktop. 
+Download the latest release in one of a few formats.
+
+You should just be able to get "AstromechInstaller.msi" and run that. It is likely your computer will warn you that this could be dangerous (because I am not a verified publisher). Press "more info" and then "run anyway" and you are off.
+
+If that does not work, grab the "AstromechInstallerCombo.zip" file. Simply unzip this folder and run setup.exe from inside it.
+
+Either way, you will get Astromech installed in the folder of your choice, a shortcut on your desktop, and a shortcut in your program files. 
 
 # How to Update or Uninstall
 
