@@ -52,7 +52,9 @@ Once you have got your settings to your liking, press start. This will activate 
 
 If you haven't booted Squadrons already, do it now. I also recommend using a good microphone. The speech recognizer requires solid audio to work well. 
 
-Next, you need to set up some keybinds. Sorry, no custom ones yet, though in future I may be able to pull that off. For the most part, you will just need default keyboard bindings. The only thing you need to add is to bind "Focus Shields Front" and "Convert Power Engines" to 9 (NOT NUMPAD 9), "Focus Shields Rear" and "Convert Power Weapons" to 0 (NOT NUMPAD 0), and finally "Focus Shields Balanced" and "Convert Power Balanced" to - (NOT NUMPAD -).  
+Next, you need to set up some keybinds. This instruction assumes you are using MY defaults. For the most part, you will just need default keyboard bindings. The only thing you need to add is to bind "Focus Shields Front" and "Convert Power Engines" to 9 (NOT NUMPAD 9), "Focus Shields Rear" and "Convert Power Weapons" to 0 (NOT NUMPAD 0), and finally "Focus Shields Balanced" and "Convert Power Balanced" to - (NOT NUMPAD -).  
+
+NOTE: Version 2.0 (and above) support custom keybinds. All keys are prefixed by "DIK_" followed by what the key is. Note that "DIK_9" and "DIK_NUM9" are different keys. The former is above the keyboard, while the latter is actually on the numpad. 
 
 When in game, commands will only work properly while flying. However, since the commands work by simulating key presses, you could accidentally press some buttons (hence the wake word) When you get flying, simply say your droid's name to wake it up. You should hear a sound on awake, as well as a sound when the droid goes back to sleep. If you have disabled the wake word, you will be able to just say commands, instead. 
 
