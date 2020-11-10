@@ -4,7 +4,7 @@
   <description asmv2:iconFile="astromech_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Astromech" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Astromech" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Astromech.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,24 +55,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astromech.exe" size="1300440">
-      <assemblyIdentity name="Astromech" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astromech.exe" size="1559000">
+      <assemblyIdentity name="Astromech" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>D7+4IUSS+Z7z4N7OXpZYcfsPiBSCtYsubCvW5RP3+BE=</dsig:DigestValue>
+        <dsig:DigestValue>N6xp9DdpwPNm7HKVv7qJWhwqWsWFKMMz93CmXq6lrMU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Astromech.exe.config" size="1170">
+  <file name="Astromech.exe.config" size="3547">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>nvWwZaotW4SdtZK6/x5KNcZ2g+Zq9eQn/xoWuGv102I=</dsig:DigestValue>
+      <dsig:DigestValue>RVsKIprdXORZ39HcXqVVJVarF/EPskIz6WV7z37R7EI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="astromech_icon.ico" size="235178">
@@ -82,15 +82,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>7bmJuXrBT2fHbrzuRBsAi6he3kxgXDIqmocBVCNZQYE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Commands.txt" size="804">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>IwfIHivk694egLi7WJ3D3DatjsDGZw9HI7H7iP9lzVM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\astromech_icon.ico" size="235178">

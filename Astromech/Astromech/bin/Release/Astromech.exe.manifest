@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Astromech.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Astromech.exe" version="2.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="astromech_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Astromech" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Astromech" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Astromech.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,24 +55,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astromech.exe" size="1299928">
-      <assemblyIdentity name="Astromech" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astromech.exe" size="1554392">
+      <assemblyIdentity name="Astromech" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aed+gPWhJja4LoUcAsXB0eyC4QIpfG7zPi2rGROR+E8=</dsig:DigestValue>
+        <dsig:DigestValue>cybkIulVmDxuSCjANK3+yy8sEaFoE9V6AqVhzqYjeOM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Astromech.exe.config" size="1170">
+  <file name="Astromech.exe.config" size="3547">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>nvWwZaotW4SdtZK6/x5KNcZ2g+Zq9eQn/xoWuGv102I=</dsig:DigestValue>
+      <dsig:DigestValue>RVsKIprdXORZ39HcXqVVJVarF/EPskIz6WV7z37R7EI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="astromech_icon.ico" size="235178">

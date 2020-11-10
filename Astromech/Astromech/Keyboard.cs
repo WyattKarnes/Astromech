@@ -175,6 +175,7 @@ namespace Astromech
             DIK_PGDN = DIK_NEXT,
 
             // Mined these out of nowhere.
+            /*
             DIK_LEFTMOUSEBUTTON = 0x100,
             DIK_RIGHTMOUSEBUTTON = 0x101,
             DIK_MIDDLEWHEELBUTTON = 0x102,
@@ -185,6 +186,7 @@ namespace Astromech
             DIK_MOUSEBUTTON7 = 0x107,
             DIK_MOUSEWHEELUP = 0x108,
             DIK_MOUSEWHEELDOWN = 0x109,
+            */
         }
 
         /// <summary>

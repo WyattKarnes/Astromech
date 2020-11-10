@@ -12,13 +12,14 @@ using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using System.Media;
 using System.IO;
+using System.Diagnostics;
 
 /// <summary>
 /// This code was created by Wyatt Karnes. Currently, the code is NOT open source.
 /// </summary>
 namespace Astromech
 {
-    public partial class Astromech : Form
+    public partial class Astromech1 : Form
     {
         #region SpeechRecognition
         //listens for commands
@@ -43,13 +44,17 @@ namespace Astromech
         private bool useWakeWord;
         #endregion
 
-        public Astromech()
+        Keybinds keybinds;
+
+        public Astromech1()
         {
             InitializeComponent();
         }
 
         private void Astromech_Load(object sender, EventArgs e)
         {
+            keybinds = new Keybinds();
+
             TmrSpeaking.Stop();
             astromechOn.LoadAsync();
             astromechOff.LoadAsync();
@@ -76,10 +81,9 @@ namespace Astromech
             //if the wake word is heard, stop listening for wake words, 
             if (speech.Equals(droidName))
             {
-                
-                astromechOn.Play();
-                startListening.RecognizeAsyncCancel();
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                startListening.RecognizeAsyncCancel();
+                astromechOn.Play();
                 timeOut = 0;
                 TmrSpeaking.Start();
             }
@@ -140,6 +144,9 @@ namespace Astromech
             timeToWait = (int)timeToWaitSelector.Value;
             useWakeWord = useWakeWordChkBox.Checked;
 
+            //ensure that the keybinds are set
+            keybinds.SetKeybindDataFromFile();
+
             //save settings
             Properties.Settings.Default.Droid_Name = droidName;
             Properties.Settings.Default.Wait_Time = timeToWait;
@@ -155,6 +162,7 @@ namespace Astromech
             recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices(commands))));
             recognizer.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(recognizer_SpeechDetected);
             recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(recognizer_SpeechRecognized);
+            //recognizer.BabbleTimeout = System.TimeSpan.FromSeconds(10);
 
             if (useWakeWord) //if using wake word then use timer. Otherwise, no. 
             {
@@ -171,6 +179,12 @@ namespace Astromech
             acceptButton.Visible = false;
         }
 
+        //open the keybind window
+        private void keybindsButton_Click(object sender, EventArgs e)
+        {
+            keybinds.ShowDialog();
+        }
+
         //close program
         private void quitButton_Click(object sender, EventArgs e)
         {
@@ -179,7 +193,8 @@ namespace Astromech
             Properties.Settings.Default.Wait_Time = timeToWait;
             Properties.Settings.Default.Use_Wake_Word = useWakeWord;
             Properties.Settings.Default.Save();
-
+            startListening.Dispose();
+            recognizer.Dispose();
             this.Close();
         }
 
@@ -192,184 +207,229 @@ namespace Astromech
         //determines what was said and acts
         private void PerformCommand(string speech)
         {
-
-
             //counter measures
             if (speech == commands[0] || speech == commands[1])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_R, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_R, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.counterKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.counterKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //weapon power
             if (speech == commands[2] || speech == commands[3])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, false, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_2, false, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balancePowerKey, false, Keyboard.InputType.Keyboard);
 
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, true, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_2, true, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.balancePowerKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(50);
+
+                Keyboard.SendKey(keybinds.modKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.weaponPowerKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(30);
+
+                Keyboard.SendKey(keybinds.weaponPowerKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.modKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //engine power
             if (speech == commands[4] || speech == commands[5])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, false, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_1, false, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balancePowerKey, false, Keyboard.InputType.Keyboard);
 
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, true, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_1, true, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.balancePowerKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(50);
+
+                Keyboard.SendKey(keybinds.modKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.enginePowerKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(30);
+
+                Keyboard.SendKey(keybinds.modKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.enginePowerKey, true, Keyboard.InputType.Keyboard);           
                 return;
             }
 
             //shield power
             if (speech == commands[6] || speech == commands[7])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, false, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_3, false, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balancePowerKey, false, Keyboard.InputType.Keyboard);
 
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_LCONTROL, true, Keyboard.InputType.Keyboard);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_3, true, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.balancePowerKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(50);
+
+                Keyboard.SendKey(keybinds.modKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.shieldPowerKey, false, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(30);
+
+                Keyboard.SendKey(keybinds.shieldPowerKey, true, Keyboard.InputType.Keyboard);
+
+                Thread.Sleep(10);
+
+                Keyboard.SendKey(keybinds.modKey, true, Keyboard.InputType.Keyboard);
+                
                 return;
             }
 
             //balance power
             if (speech == commands[8] || speech == commands[9])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_4, false, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balancePowerKey, false, Keyboard.InputType.Keyboard);
 
-                Thread.Sleep(7);
+                Thread.Sleep(10);
 
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_4, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balancePowerKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //forward deflectors, emergency power to engines
             if (speech == commands[10] || speech == commands[11] || speech == commands[12] || speech == commands[13])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_9, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_9, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.forwardShieldKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.forwardShieldKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //rear deflectors, emergency power to weapons
             if (speech == commands[14] || speech == commands[15] || speech == commands[16] || speech == commands[17])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_0, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_0, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.rearShieldKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.rearShieldKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //balance deflectors, balance emergency power
             if (speech == commands[18] || speech == commands[19] || speech == commands[20] || speech == commands[21])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_MINUS, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_MINUS, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.balanceShieldKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.balanceShieldKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //lock onto attacker
             if (speech == commands[22] || speech == commands[23])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_G, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_G, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetAttackerKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetAttackerKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //cycle targets
             if (speech == commands[24] || speech == commands[25])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.cycleTargetsKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.cycleTargetsKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
-            //target friendlies
+            //target allies
             if (speech == commands[26] || speech == commands[27])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F6, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F6, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetAlliesKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetAlliesKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //target hostiles
             if (speech == commands[28] || speech == commands[29])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F10, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F10, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetHostilesKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetHostilesKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //target capital ship systems
             if (speech == commands[30] || speech == commands[31])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F12, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F12, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetSystemsKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetSystemsKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //target AI
             if (speech == commands[32] || speech == commands[33])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F11, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F11, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetAIKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetAIKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //target the target's follower
             if (speech == commands[34] || speech == commands[35])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F7, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F7, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetsFollowerKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetsFollowerKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //target missiles
             if (speech == commands[36] || speech == commands[37])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F3, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_F3, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.targetMissilesKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.targetMissilesKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //ping target
             if (speech == commands[38] || speech == commands[39])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_H, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_H, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.pingKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.pingKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
             //acknowledge
             if (speech == commands[40] || speech == commands[41])
             {
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_B, false, Keyboard.InputType.Keyboard);
-                Thread.Sleep(7);
-                Keyboard.SendKey(Keyboard.DirectXKeyStrokes.DIK_B, true, Keyboard.InputType.Keyboard);
+                Keyboard.SendKey(keybinds.acknowledgeKey, false, Keyboard.InputType.Keyboard);
+                Thread.Sleep(10);
+                Keyboard.SendKey(keybinds.acknowledgeKey, true, Keyboard.InputType.Keyboard);
                 return;
             }
 
+
         }
 
-      
+        
     }
 
 }

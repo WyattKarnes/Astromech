@@ -12,7 +12,6 @@ G:\C#workstation\Astromech\Astromech\bin\Debug\Astromech.exe.config
 G:\C#workstation\Astromech\Astromech\bin\Debug\Astromech.exe
 G:\C#workstation\Astromech\Astromech\bin\Debug\Astromech.pdb
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.csprojAssemblyReference.cache
-G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.Astromech.resources
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.Properties.Resources.resources
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.csproj.GenerateResource.cache
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.csproj.CoreCompileInputs.cache
@@ -25,3 +24,5 @@ G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.exe.manifest
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.application
 G:\C#workstation\Astromech\Astromech\obj\Debug\Interop.MediaPlayer.dll
 G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.csproj.ResolveComReference.cache
+G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.Keybinds.resources
+G:\C#workstation\Astromech\Astromech\obj\Debug\Astromech.Astromech1.resources
