@@ -1,5 +1,6 @@
 # Astromech
-A small program that enables voice control functionality to the game Star Wars: Squadrons.
+A small program that adds a droid to your X-Wing!
+(enables voice control functionality to the game Star Wars: Squadrons)
 
 # Feeling Generous?
 
