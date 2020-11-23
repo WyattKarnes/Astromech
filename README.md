@@ -106,7 +106,7 @@ i see it        //acknowledge a painted target
 acknowledge
 ```
 So why so many different commands? Well, I wanted to give you options. Additionally, I wrote the code such that you can write in *anything you want* and it should work. 
-Just go to the Commands.txt file (make a copy just in case), which can be found inside of your install folder, and edit away! There are some caveats though.
+Just go to the Commands.txt file (make a copy just in case), which can be found inside of your install folder (by default this is ProgramFiles(x86)/RansomSoft/Astromech), and edit away! There are some caveats though.
 
 The code works with EXACTLY 42 commands and their __*purpose*__ must be in the EXACT order that I have them listed. They must also all be on __*separate lines*__. You can therefore have up to two custom commands per control, but you must always have 42 commands, you cannot have less than that, and you cannot have more. Doing so will result in crashing the program and odd behavior, respectively. Commands should also all be lowercase. A safe edit would be something like this: 
 ```
